@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0e1630;
+  --color-panel: #192040;
+  --color-panel-2: #1f2d52;
+  --color-gold: #f0cc72;
+  --color-cream: #f2ece0;
+  --color-muted: #a8b4d0;
+  --color-cyan: #5fd3f3;
+  --color-purple: #c09df0;
+  --color-blue: #6095f8;
+  --color-green: #72e8a8;
+}
+
+/* ── Theme tokens ──────────────────────────────────────────────────────────── */
+:root {
+  --t-bg0: #070b18;
+  --t-bg1: #0d1526;
+  --t-bg2: #192040;
+  --t-bg3: rgba(31,45,82,0.6);
+  --t-bg-subtle: rgba(255,255,255,0.04);
+  --t-bg-hover:  rgba(255,255,255,0.08);
+
+  --t-text0: #f2ece0;
+  --t-text1: #a8b4d0;
+  --t-text2: rgba(168,180,208,0.5);
+  --t-text3: rgba(168,180,208,0.28);
+
+  --t-border0: rgba(31,45,82,0.85);
+  --t-border1: rgba(255,255,255,0.08);
+  --t-border2: rgba(31,45,82,0.55);
+
+  --t-header:   #080d1a;
+  --t-sidebar:  rgba(6,10,22,0.7);
+  --t-modal:    #0d1526;
+  --t-scrim:    rgba(6,10,24,0.82);
+  --t-body-bg:  radial-gradient(ellipse at 50% 0%, #1c2a52 0%, #0e1630 55%);
+}
+
+[data-theme="light"] {
+  /* Tailwind token overrides — handles all bg-panel, text-cream, etc. classes */
+  --color-navy:    #e8edf8;
+  --color-panel:   #f4f7ff;
+  --color-panel-2: #dde5f5;
+  --color-cream:   #1a2240;
+  --color-muted:   #4a5a8a;
+
+  /* Structural tokens */
+  --t-bg0: #e0e8f8;
+  --t-bg1: #ffffff;
+  --t-bg2: #f4f7ff;
+  --t-bg3: rgba(160,185,240,0.3);
+  --t-bg-subtle: rgba(0,30,100,0.04);
+  --t-bg-hover:  rgba(0,30,100,0.08);
+
+  --t-text0: #1a2240;
+  --t-text1: #4a5a8a;
+  --t-text2: rgba(50,70,140,0.55);
+  --t-text3: rgba(50,70,140,0.32);
+
+  --t-border0: rgba(100,130,220,0.35);
+  --t-border1: rgba(0,30,100,0.1);
+  --t-border2: rgba(100,130,220,0.2);
+
+  --t-header:   #ffffff;
+  --t-sidebar:  rgba(240,244,255,0.97);
+  --t-modal:    #ffffff;
+  --t-scrim:    rgba(160,180,230,0.55);
+  --t-body-bg:  radial-gradient(ellipse at 50% 0%, #c8d8f8 0%, #e8f0ff 55%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  transition: transform 0.12s ease, box-shadow 0.15s ease, filter 0.15s ease, border-color 0.15s ease, background 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+}
+button:hover:not(:disabled) {
+  filter: brightness(1.12);
+}
+button:active:not(:disabled) {
+  transform: scale(0.93) !important;
+  filter: brightness(0.95) !important;
+}
+button:focus-visible {
+  outline: 2px solid rgba(240,204,114,0.5);
+  outline-offset: 2px;
+}
+
+button[data-nohover]:hover {
+  filter: none;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--t-body-bg);
+  color: var(--t-text0);
+  font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  font-feature-settings: "tnum" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.01em;
+}
+
+.tabular-nums, input[type="number"] {
+  font-family: "Space Mono", "Space Grotesk", monospace;
+  font-feature-settings: "tnum" 1;
+  letter-spacing: 0;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track  { background: var(--t-bg0); }
+::-webkit-scrollbar-thumb  { background: var(--t-border0); border-radius: 6px; }
